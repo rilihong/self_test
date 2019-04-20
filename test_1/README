@@ -1,0 +1,56 @@
+Input:
+	input.txt
+	context:
+	Graph: AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
+
+	all intput file should start with head "Graph: "
+	then follow the distance pair such as "AB5" and separate with ","
+
+Code:
+	my code is ugly with collecting input and analysising the data ~~~
+	
+	in main function:
+		get_distance_pair()  			is used to collcet input data
+		std::vector<string> distance_pair	is used to hold input string data separated with ","
+
+		std::vector<dis_node> input		input nodes
+		get_node_data()				is used to check the distance_pair and filled input
+
+		map<string,vector<dis_node>> input_map		another kind of input by key(src town string) + value(reach town dis_node)
+    		create_town_node_struct(input,input_map);	filled input_map
+
+	node_map
+		hold town_num * town_num map for 1~10 question
+		node_map_init() 				init d_map n_map s_map with map<string,vector<dis_node>> input_map
+		
+		s_map 						store the src_input :n_map s_map with map<string,vector<dis_node>> input_map
+		n_map						string town ==> town number map (key town + value number) 
+		d_map						(town_num * town_num map) d_map[i][j] = town(i) to town(j) distance 
+
+		i use "vector<string>& town_list" hold source town to destination town pair
+		A-B	:	town_list.push_back("A");town_list.push_back("B");
+		A-B-C	:	town_list.push_back("A");town_list.push_back("B");town_list.push_back("C");
+
+		and send town_list to functions below:
+
+		other functions:
+		//init s_map n_map d_map by input
+    		node_map_init
+
+    		//search router by direct router list
+    		search_direct_router_by_node
+
+    		//search in the exact step, if the des can not reach ,return 0 ,else return reach router count
+    		search_exactly_step_by_node
+
+    		//search in the max step, if the des can not reach ,return 0 ,else return reach router count
+    		search_max_step_by_node
+
+    		//find the shortest router distance, return 0 if can not reach ,else return shortest distance
+		//use the breadth traversal algorithm
+    		search_shortest_router_distance
+
+    		//search all possible router count, return 0 if can not reach ,else return router count
+		//use the breadth traversal algorithm
+    		search_possible_router_count
+

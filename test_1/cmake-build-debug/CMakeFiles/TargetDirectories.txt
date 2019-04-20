@@ -1,0 +1,3 @@
+/Users/rilihong/github/self_test/test_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/rilihong/github/self_test/test_1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/rilihong/github/self_test/test_1/cmake-build-debug/CMakeFiles/test_1.dir
